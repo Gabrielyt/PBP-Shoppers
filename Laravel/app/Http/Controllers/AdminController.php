@@ -14,7 +14,14 @@ class AdminController extends Controller
 {
 
     public function login(){
-        return view('admin/login');
+      $id_user= request()->Session()->get('id_user');
+      $role = DB::table('users')->where('id',$id_user)->get()->first();
+      if($role->role==1){
+          return view('admin/login');
+      }else{
+          return view('/');
+      }
+
     }
 
 
@@ -38,11 +45,17 @@ class AdminController extends Controller
         else{
             return redirect('admin/login')->with('alert','Password atau Email, Salah!');
         }
-            
+
     }
 
     public function admin(){
-        return view('admin/home');
+      $id_user= request()->Session()->get('id_user');
+      $role = DB::table('users')->where('id',$id_user)->get()->first();
+      if($role->role==1){
+          return view('admin/home');
+      }else{
+          return redirect('/');
+      }
     }
 
     public function tampil(){
@@ -52,7 +65,7 @@ class AdminController extends Controller
     public function list(){
             $data = DB::table('file')->get();
             return view('admin/list',['listdata' => $data]);
-        
+
     }
 
     function tampilupdate($id_barang){
@@ -64,9 +77,9 @@ class AdminController extends Controller
         $photo = $req->file('barang')->getClientOriginalName();
         $destination = base_path() . '/public/barangs';
         $req->file('barang')->move($destination, $photo);
-        
-      
-       
+
+
+
        DB::table('file')->insert(
         ['nama'=>$req->nama,
         'harga'=>$req->harga,
@@ -74,17 +87,17 @@ class AdminController extends Controller
         'stok'=>$req->stok,
         'keterangan'=>$req->keterangan,
         'id_penjual'=>$req->idpenjual]);
-   
+
        return redirect()->back()->with('sukses','Data Berhasil di Tambah');
     }
-   
+
 
     function updatedata(Request $req){
-       
+
 
         if($req->barang !=''){
             $photo = $req->file('barang')->getClientOriginalName();
-            $fotlam = $req->foto; 
+            $fotlam = $req->foto;
             $destination = base_path() . '/public/barangs/'.$fotlam;
             unlink($destination);
             $destination2 = base_path() . '/public/barangs';
@@ -105,7 +118,7 @@ class AdminController extends Controller
                 'keterangan' => $req->keterangan,
                 'id_penjual' => $req->idpenjual]);
         }
-        
+
 
         return redirect()->back();
     }

@@ -22,6 +22,9 @@
         <div class="row no-gutter">
             <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
             <div class="col-md-8 col-lg-6">
+              <a href="/"><button
+                  class="btn   text-uppercase font-weight-bold"
+                  type="button" style="color:#007bff;margin:2px">X</button></a>
                 <div class="login d-flex align-items-center py-5">
                     <div class="container">
                         <div class="row">

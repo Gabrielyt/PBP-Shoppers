@@ -15,4 +15,9 @@ class CheckoutController extends Controller
       return view('toko/shoppers/Checkout',['cart' => $data1]);
 
     }
+    function getThank(){
+
+      return view('toko/shoppers/thankyou');
+
+    }
 }

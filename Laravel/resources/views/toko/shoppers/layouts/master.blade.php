@@ -15,6 +15,14 @@
   <link rel="stylesheet" href="{{url('toko/css/style.css')}}">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
+      <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css" />
+      <!-- Theme style -->
+      <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css')}}">
+      <!-- Table -->
+      <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/datatables.min.css" />
+      <!-- Google Font: Source Sans Pro -->
+      <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
     @yield('style')
   </head>
@@ -22,7 +30,7 @@
     @include('toko/shoppers/partials/header')
 
     @yield('content')
-
+    @include('toko/shoppers/partials/footer')
     <script src="{{url('toko/js/jquery-3.3.1.min.js')}}"></script>
     <script src="{{url('toko/js/jquery-ui.js')}}"></script>
     <script src="{{url('toko/js/popper.min.js')}}"></script>

@@ -51,7 +51,9 @@ class CartController extends Controller
           'jumlah'=>1,
           'harga'=>$file->harga,
           'total'=>$file->harga,
-          'foto'=>$file->foto]
+          'foto'=>$file->foto,
+          'id_penjual'=>$file->id_penjual
+          ]
         );
 
       }
@@ -64,4 +66,14 @@ class CartController extends Controller
         return redirect('/cart');
     }
 
-  }
+    function keranjang(){
+
+      $id_user= request()->Session()->get('id_user');
+
+      $data1= DB::table('transaksi')->where('id_user',$id_user)->get();
+
+
+      return view('toko/shoppers/keranjang',['list'=>$data1]);
+
+     }
+    }

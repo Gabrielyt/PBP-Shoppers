@@ -190,12 +190,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/admin/tambahdata" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Data</p>
-                                    </a>
-                                </li>
+
                                 <li class="nav-item">
                                     <a href="/admin/listdata" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -214,12 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="/admin/tambahdata" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah User</p>
-                                    </a>
-                                </li>
+                                
                                 <li class="nav-item">
                                     <a href="/admin/listdata" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

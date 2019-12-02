@@ -20,6 +20,7 @@ class BarangController extends Controller
     }
 
 
+
     function tambah(){
         return view('tambah');
     }

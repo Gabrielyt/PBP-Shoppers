@@ -15,8 +15,11 @@ Route::get('/', 'BarangController@home');
 Route::get('/cart','CartController@cart');
 Route::get('/cart/tambah/{id_barang}','CartController@cart_tambah');
 Route::get('/cart/hapus/{id_cart}','CartController@hapus');
-
+#cart to oreder
+Route::get('thankyou','CheckoutController@getThank');
 Route::get('/checkout','CheckoutController@checkout');
+
+Route::get('/order/tambah','TransController@tambah');
 
 #Route::get('/toko', 'BarangController@home');
 Route::get('/tambah', 'BarangController@tambah');
@@ -46,3 +49,13 @@ Route::get('registration', 'AuthController@registration');
 Route::post('post-registration', 'AuthController@postRegistration');
 Route::get('dashboard', 'AuthController@dashboard');
 Route::get('logout', 'AuthController@logout');
+
+Route::get('keranjang', 'CartController@keranjang');
+Route::get('tokoview', 'PenjualController@tokoview');
+Route::get('/toko/tambah', 'PenjualController@tampiltambah');
+Route::post('/toko/tambah', 'PenjualController@insertbarang');
+Route::get('/toko/edit/{id_barang}', 'PenjualController@tampilupdate');
+Route::post('/toko/edit', 'PenjualController@updatedata');
+Route::get('/toko/hapus/{id_barang}', 'PenjualController@hapusdata');
+Route::get('/toko/pesanan', 'PenjualController@tampilpesanan');
+Route::post('/toko/updatebarang', 'PenjualController@updatestatus');
