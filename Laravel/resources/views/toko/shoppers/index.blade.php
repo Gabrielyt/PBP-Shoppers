@@ -29,7 +29,6 @@
                             <div class="card-body">
                                 <h5 class="card-title">{{$a->nama}}</h5>
                                 <p class="card-text">Rp. {{$a->harga}}</p>
-
                                 <a href="/cart/tambah/{{$a->id_barang}}" class="btn btn-primary">add to cart</a>
                             </div>
                         </div>

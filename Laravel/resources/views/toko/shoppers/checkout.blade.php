@@ -198,14 +198,14 @@
                     <tbody>
                       @foreach($cart as $a)
                       <tr>
-                        <td> <strong class="mx-2">x</strong> {{$a->jumlah}}</td>
-                        <td>{{$a->harga}}</td>
+                        <td>{{$a->nama}}<strong class="mx-2">x</strong> {{$a->jumlah}}</td>
+                        <td>{{$a->total}}</td>
                       </tr>
                       @endforeach
                       <?php
                       $jum=0;
                       foreach ($cart as $key ) {
-                        $jum+=$key->harga;
+                        $jum+=$key->total;
                       } ?>
                       <tr>
                         <td class="text-black font-weight-bold"><strong>Cart Subtotal</strong></td>

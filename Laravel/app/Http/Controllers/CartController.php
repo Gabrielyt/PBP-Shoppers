@@ -13,6 +13,8 @@ class CartController extends Controller
 
   function cart(){
     $id_user= request()->Session()->get('id_user');
+    $data1= DB::table('cart_users')->where('id_user',$id_user)->count();
+    Session::put('count_cart',$data1);
     if(!$id_user){
       return redirect('login');
     }else{
@@ -32,7 +34,14 @@ class CartController extends Controller
 
 
       if($id=$cart){
-
+      $har=$cart->harga;
+      $quant = $cart->jumlah;
+      $tot = $cart->total;
+      $quant+=1;
+      $tot1=$quant*$har;
+      DB::table('cart_users')->where('id_user',$id_user)->where('id_barang', $cart->id_barang)->update([
+          'jumlah' => $quant,
+          'total' => $tot1]);
 
       }else{
         DB::table('cart_users')->insert(
@@ -49,10 +58,10 @@ class CartController extends Controller
 
       return redirect('/');
     }
-    function hapus($id_cart){
+  }
+    function hapus($id){
         DB::table('cart_users')->where('id_cart',$id)->delete();
         return redirect('/cart');
     }
 
   }
-}

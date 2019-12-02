@@ -99,7 +99,7 @@
                     <?php
                     $jumlah=0;
                     foreach ($cart as $key ) {
-                      $jumlah+=$key->harga;
+                      $jumlah+=$key->total;
                     } ?>
                     <strong class="text-black">Rp. {{$jumlah}}</strong>
                   </div>
