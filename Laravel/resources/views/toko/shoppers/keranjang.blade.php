@@ -51,11 +51,25 @@
                       <th>Total</th>
                       <th>Status</th>
                     </thead>
+
+
                     <tbody>
-                      @foreach($list as $a)
+                      <?php
+
+
+                        for ($i=0; $i < ; $i++) {
+                          // code...
+                        }
+                        foreach($list as $a){
+
+
+                          ?>
+
+
+
                       <tr>
-                        <td>{{$a->nama_barang}}<strong class="mx-2">x</strong> {{$a->jumlah_barang}}</td>
-                        <td>{{$a->total}}</td>
+                        <td><?php echo $a->nama_barang; ?><strong class="mx-2">x</strong> <?php echo  $a->jumlah_barang; ?></td>
+                        <td><?php echo $a->total; ?></td>
                         <td>
                         <?php
                           if($a->status==0){
@@ -70,9 +84,15 @@
                          ?>
                        </td>
                       </tr>
-                      @endforeach
+
+                    <?php
+
+
+                    } ?>
+
 
                     </tbody>
+
 
                   </table>
 
@@ -88,5 +108,5 @@
       </div>
     </div>
 
-  
+
 @endsection

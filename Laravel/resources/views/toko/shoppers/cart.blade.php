@@ -55,11 +55,11 @@
                     <td>
                       <div class="input-group mb-3" style="max-width: 120px;">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
+                        <a href="/cart/tambah_minus/{{$a->id_cart}}">  <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button></a>
                         </div>
                         <input type="text" class="form-control text-center" value="{{$a->jumlah}}" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
+                          <a href="/cart/tambah_plus/{{$a->id_cart}}"><button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
                         </div>
                       </div>
 
@@ -83,7 +83,7 @@
                 <button class="btn btn-primary btn-sm btn-block">Update Cart</button>
               </div>
               <div class="col-md-6">
-                <button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button>
+                <a href="/"><button class="btn btn-outline-primary btn-sm btn-block">Continue Shopping</button></a>
               </div>
             </div>
             <div class="row">
@@ -141,5 +141,5 @@
       </div>
     </div>
 
-  
+
 @endsection

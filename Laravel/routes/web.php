@@ -15,6 +15,8 @@ Route::get('/', 'BarangController@home');
 Route::get('/cart','CartController@cart');
 Route::get('/cart/tambah/{id_barang}','CartController@cart_tambah');
 Route::get('/cart/hapus/{id_cart}','CartController@hapus');
+Route::get('/cart/tambah_plus/{id_cart}','CartController@cart_plus');
+Route::get('/cart/tambah_minus/{id_cart}','CartController@cart_minus');
 #cart to oreder
 Route::get('thankyou','CheckoutController@getThank');
 Route::get('/checkout','CheckoutController@checkout');
@@ -38,6 +40,11 @@ Route::get('/admin/listdata','AdminController@list');
 Route::get('/admin/tampilupdate/{id_barang}','AdminController@tampilupdate');
 Route::post('/admin/update','AdminController@updatedata');
 Route::get('/admin/hapus/{id_barang}','AdminController@hapus');
+Route::get('/admin/listuser','AdminController@listuser');
+Route::get('/admin/hapususer/{id}','AdminController@hapususer');
+Route::post('/admin/userUpdate','AdminController@userUpdate');
+Route::get('/admin/userUpdate/{id}','AdminController@tampilupdateuser');
+Route::get('/admin/userHapus/{id}','AdminController@userHapus');
 
 #login
 Auth::routes();

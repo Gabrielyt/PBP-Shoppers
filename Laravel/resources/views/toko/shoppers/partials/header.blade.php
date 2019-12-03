@@ -21,7 +21,7 @@
                         <div class="site-top-icons">
                             <ul>
 
-                                
+
                                 <li>
                                     <a href="/cart" class="site-cart">
                                         <span class="icon icon-shopping_cart"></span>
@@ -46,6 +46,9 @@
                                                           <a href="{{url('registration')}}">Register</a>
                                                         </li>
                                                         @else
+                                                        @if(Session::get('role')==1)
+                                                        <li><a href="{{url('admin')}}">Admin</a></li>
+                                                        @endif
                                                         <li><a href="{{url('keranjang')}}">Keranjang</a></li>
                                                         <li><a href="{{url('tokoview')}}">Toko</a></li>
                                                         <li><a href="{{url('logout')}}">Logout</a></li>

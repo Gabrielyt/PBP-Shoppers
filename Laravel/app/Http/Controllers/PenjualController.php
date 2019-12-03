@@ -9,6 +9,9 @@ class PenjualController extends Controller
 {
   function tokoview(){
     $id_user= request()->Session()->get('id_user');
+    $data1= DB::table('cart_users')->where('id_user',$id_user)->count();
+    Session::put('count_cart',$data1);
+
       $data = DB::table('file')->where('id_penjual',$id_user)->get();
     return view('toko/shoppers/shop',['listdata' => $data]);
   }
@@ -84,6 +87,7 @@ class PenjualController extends Controller
         'status'=>$req->status]);
 
       return redirect()->back();
+
   }
 
 

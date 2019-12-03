@@ -34,6 +34,7 @@ class AuthController extends Controller
         if (Auth::attempt($credentials)) {
             // Authentication passed...
             Session::put('id_user',$role->id);
+            Session::put('role',$role->role);
             if($role->role==1){
                 return view('admin/home');
             }

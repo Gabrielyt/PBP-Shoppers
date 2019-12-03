@@ -11,6 +11,8 @@ class CheckoutController extends Controller
 {
     function checkout(){
       $id_user= request()->Session()->get('id_user');
+      $data12= DB::table('cart_users')->where('id_user',$id_user)->count();
+      Session::put('count_cart',$data12);
       $data1= DB::table('cart_users')->where('id_user',$id_user)->get();
       return view('toko/shoppers/Checkout',['cart' => $data1]);
 

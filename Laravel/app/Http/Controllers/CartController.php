@@ -23,6 +23,41 @@ class CartController extends Controller
 
    }
   }
+  function cart_plus($id){
+      $cart=DB::table('cart_users')->where('id_cart',$id)->get()->first();
+      $har=$cart->harga;
+      $jum=$cart->jumlah;
+      $jum+=1;
+      $tot1=$jum*$har;
+      DB::table('cart_users')->where('id_cart',$id)->update([
+        'jumlah'=>$jum,
+        'total'=>$tot1
+      ]);
+      return redirect('cart');
+  }
+  function cart_minus($id){
+      $cart=DB::table('cart_users')->where('id_cart',$id)->get()->first();
+      $har=$cart->harga;
+      $jum=$cart->jumlah;
+      $jum1=$cart->jumlah;
+      if($jum=0){
+        $jum=1;
+        $tot1=$jum*$har;
+        DB::table('cart_users')->where('id_cart',$id)->update([
+          'jumlah'=>$jum,
+          'total'=>$tot1
+        ]);
+
+      }else if(!$jum1<0){
+        $jum-=1;
+        $tot1=$jum*$har;
+        DB::table('cart_users')->where('id_cart',$id)->update([
+          'jumlah'=>$jum,
+          'total'=>$tot1
+        ]);
+      }
+      return redirect('cart');
+  }
   function cart_tambah($id){
 
     $id_user= request()->Session()->get('id_user');
@@ -68,12 +103,23 @@ class CartController extends Controller
 
     function keranjang(){
 
-      $id_user= request()->Session()->get('id_user');
+      $id_use= request()->Session()->get('id_user');
 
-      $data1= DB::table('transaksi')->where('id_user',$id_user)->get();
+      $data1= DB::table('transaksi')->where('id_user',$id_use)->get();
+      $data2= DB::table('transaksi')->where('id_user',$id_use)->count();
+      for ($k=0; $k < $data2; $k++) {
+        for ($i=0; $i <$data2 ; $i++) {
+          $no_pemb[$k]= $data1[$k]->no_pembelian;
 
 
-      return view('toko/shoppers/keranjang',['list'=>$data1]);
+        }
+
+      }
+
+
+
+
+      return view('toko/shoppers/keranjang',['list'=>$data1,'no'=>$no_pemb]);
 
      }
     }

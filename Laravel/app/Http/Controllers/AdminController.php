@@ -127,5 +127,31 @@ class AdminController extends Controller
         DB::table('file')->where('id_barang',$id_barang)->delete();
         return redirect('/admin/listdata');
     }
+    public function listuser(){
+            $data = DB::table('users')->get();
+            return view('admin/listUser',['listdata' => $data]);
+
+    }
+    function tampilupdateuser($id){
+        $data2 = DB::table('users')->where('id',$id)->get();
+        return view('admin/updateUser',['tampilupdate' => $data2]);
+    }
+    function userUpdate(Request $req){
+
+            DB::table('users')->where('id',$req->id)->update([
+                'name' => $req->name,
+                'email' => $req->email,
+                'role' => $req->role,
+                'alamat' => $req->alamat]);
+              return redirect('/admin/listuser');
+        }
+
+        function hapususer($id){
+            DB::table('users')->where('id',)->delete();
+            return redirect('/admin/listuser');
+        }
+
+
+
 
 }
